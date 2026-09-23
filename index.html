@@ -1,773 +1,644 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Varun Karkera | AI Engineer</title>
-
-    <meta name="description"
-        content="Varun Karkera — AI Engineer building production AI systems, LLM applications, AI agents, computer vision and scalable backend systems.">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: #09090b;
-            color: #f4f4f5;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1100px, 90%);
-            margin: auto;
-        }
-
-        /* NAV */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(9, 9, 11, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #27272a;
-        }
-
-        .nav-inner {
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .logo span {
-            color: #a1a1aa;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            color: #a1a1aa;
-            font-size: 14px;
-        }
-
-        .nav-links a:hover {
-            color: white;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 88vh;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #27272a;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .eyebrow {
-            color: #a1a1aa;
-            font-size: 14px;
-            margin-bottom: 18px;
-            letter-spacing: 0.5px;
-        }
-
-        h1 {
-            font-size: clamp(48px, 8vw, 88px);
-            line-height: 1;
-            letter-spacing: -4px;
-            margin-bottom: 25px;
-        }
-
-        .gradient {
-            background: linear-gradient(90deg, #ffffff, #71717a);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            max-width: 720px;
-            font-size: 20px;
-            color: #a1a1aa;
-            margin-bottom: 32px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .button {
-            padding: 11px 18px;
-            border: 1px solid #3f3f46;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: 0.2s;
-        }
-
-        .button:hover {
-            background: #18181b;
-            border-color: #71717a;
-        }
-
-        .button.primary {
-            background: white;
-            color: black;
-            border-color: white;
-        }
-
-        .button.primary:hover {
-            background: #e4e4e7;
-        }
-
-        /* SECTIONS */
-
-        section {
-            padding: 110px 0;
-            border-bottom: 1px solid #27272a;
-        }
-
-        .section-label {
-            color: #71717a;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-        }
-
-        h2 {
-            font-size: 38px;
-            letter-spacing: -1.5px;
-            margin-bottom: 35px;
-        }
-
-        .about {
-            max-width: 780px;
-            font-size: 18px;
-            color: #a1a1aa;
-        }
-
-        /* FOCUS */
-
-        .focus-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .focus-card {
-            padding: 28px;
-            border: 1px solid #27272a;
-            border-radius: 12px;
-            background: #0f0f12;
-        }
-
-        .focus-card h3 {
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        .focus-card p {
-            color: #a1a1aa;
-            font-size: 15px;
-        }
-
-        /* PROJECTS */
-
-        .projects {
-            display: grid;
-            gap: 20px;
-        }
-
-        .project {
-            border: 1px solid #27272a;
-            border-radius: 14px;
-            padding: 30px;
-            background: #0f0f12;
-        }
-
-        .project:hover {
-            border-color: #52525b;
-        }
-
-        .project-number {
-            color: #71717a;
-            font-size: 13px;
-            margin-bottom: 15px;
-        }
-
-        .project h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .project p {
-            color: #a1a1aa;
-            max-width: 800px;
-            margin-bottom: 18px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            border: 1px solid #27272a;
-            border-radius: 20px;
-            padding: 5px 10px;
-            font-size: 12px;
-            color: #a1a1aa;
-        }
-
-        /* EXPERIENCE */
-
-        .experience {
-            display: grid;
-            gap: 35px;
-        }
-
-        .job {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 30px;
-        }
-
-        .job-date {
-            color: #71717a;
-            font-size: 14px;
-        }
-
-        .job h3 {
-            font-size: 21px;
-            margin-bottom: 4px;
-        }
-
-        .job-company {
-            color: #a1a1aa;
-            margin-bottom: 12px;
-        }
-
-        .job p {
-            color: #a1a1aa;
-            font-size: 15px;
-        }
-
-        /* SKILLS */
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill {
-            padding: 9px 14px;
-            border: 1px solid #27272a;
-            border-radius: 8px;
-            background: #0f0f12;
-            color: #d4d4d8;
-            font-size: 14px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 70px 0;
-            color: #71717a;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .socials {
-            display: flex;
-            gap: 20px;
-        }
-
-        .socials a:hover {
-            color: white;
-        }
-
-        @media (max-width: 700px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            h1 {
-                letter-spacing: -2px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            .focus-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .job {
-                grid-template-columns: 1fr;
-                gap: 5px;
-            }
-
-            section {
-                padding: 75px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Varun Karkera — Senior Software Engineer and AI Engineer building production AI systems, LLM workflows, computer vision pipelines, and scalable backend services." />
+  <meta name="theme-color" content="#070a12" />
+  <title>Varun Karkera — AI Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #070a12;
+      --bg-soft: #0c101a;
+      --card: rgba(17, 23, 36, .72);
+      --card-2: rgba(22, 29, 45, .72);
+      --text: #f4f7fb;
+      --muted: #98a3b7;
+      --line: rgba(255,255,255,.09);
+      --accent: #8b7cff;
+      --accent-2: #56d6c5;
+      --max: 1120px;
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(139,124,255,.14), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(86,214,197,.10), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 40px), var(--max)); margin: auto; }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(7,10,18,.68);
+      border-bottom: 1px solid transparent;
+      transition: .25s ease;
+    }
+    nav.scrolled { border-color: var(--line); background: rgba(7,10,18,.88); }
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      letter-spacing: -.04em;
+      font-size: 20px;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: 14px; transition: .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text) !important;
+      background: rgba(255,255,255,.04);
+    }
+    .menu { display: none; border: 0; background: none; color: white; font-size: 25px; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding: 130px 0 80px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #c5cbe0;
+      font-size: 13px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 14px var(--accent-2);
+    }
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: .98;
+      letter-spacing: -.065em;
+      margin: 0 0 26px;
+      max-width: 850px;
+    }
+    .gradient {
+      background: linear-gradient(110deg, #fff 20%, #a99fff 58%, #67dfd0 95%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-copy {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 690px;
+      margin-bottom: 30px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 17px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-weight: 600;
+      font-size: 14px;
+      transition: .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.2); }
+    .btn-primary {
+      background: var(--text);
+      color: #080b12;
+      border-color: var(--text);
+    }
+    .btn-secondary { background: rgba(255,255,255,.035); color: var(--text); }
+
+    /* Hero visual */
+    .terminal {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(17,23,36,.95), rgba(9,13,22,.92));
+      box-shadow: 0 30px 80px rgba(0,0,0,.35);
+      overflow: hidden;
+      transform: rotate(2deg);
+    }
+    .terminal-top {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 15px;
+      border-bottom: 1px solid var(--line);
+    }
+    .terminal-top i { width: 8px; height: 8px; border-radius: 50%; background: #475066; }
+    .terminal-body { padding: 24px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #aeb8ca; }
+    .terminal-body p { margin: 0 0 13px; }
+    .prompt { color: var(--accent-2); }
+    .key { color: #b8aaff; }
+    .value { color: #e8edf8; }
+    .cursor {
+      display: inline-block; width: 7px; height: 14px;
+      background: #a99fff; vertical-align: -2px; margin-left: 4px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    section { padding: 110px 0; }
+    .section-head { margin-bottom: 44px; max-width: 720px; }
+    .kicker {
+      color: var(--accent-2);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(34px, 5vw, 52px);
+      letter-spacing: -.045em;
+      line-height: 1.05;
+      margin: 0 0 15px;
+    }
+    .section-head p { color: var(--muted); margin: 0; font-size: 16px; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .glass {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .glass p { color: var(--muted); margin: 0; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.025);
+    }
+    .stat strong { display: block; font-family: "Space Grotesk"; font-size: 27px; letter-spacing: -.04em; }
+    .stat span { display: block; color: var(--muted); font-size: 12px; margin-top: 3px; }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project {
+      position: relative;
+      overflow: hidden;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(150deg, rgba(22,29,45,.9), rgba(10,14,24,.88));
+      padding: 28px;
+      transition: .25s ease;
+    }
+    .project:hover { transform: translateY(-5px); border-color: rgba(139,124,255,.34); }
+    .project::after {
+      content: "";
+      position: absolute;
+      width: 180px; height: 180px;
+      right: -70px; top: -70px;
+      border-radius: 50%;
+      background: rgba(139,124,255,.13);
+      filter: blur(10px);
+    }
+    .project-number { color: #69738a; font-family: ui-monospace, monospace; font-size: 12px; }
+    .project h3 { font-family: "Space Grotesk"; font-size: 27px; margin: 18px 0 10px; letter-spacing: -.03em; }
+    .project p { color: var(--muted); margin: 0 0 22px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 9px;
+      color: #c4ccdc;
+      font-size: 11px;
+      background: rgba(255,255,255,.025);
+    }
+    .project-link { color: #b8aaff; font-size: 13px; font-weight: 600; margin-top: 18px; }
+
+    /* Experience */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px; top: 8px; bottom: 8px;
+      width: 1px; background: var(--line);
+    }
+    .role { position: relative; padding-left: 44px; padding-bottom: 44px; }
+    .role:last-child { padding-bottom: 0; }
+    .role-dot {
+      position: absolute; left: 5px; top: 6px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(139,124,255,.65);
+    }
+    .role-meta { color: var(--accent-2); font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+    .role h3 { font-family: "Space Grotesk"; margin: 7px 0 5px; font-size: 23px; }
+    .role-company { color: #d6dceb; font-size: 14px; margin-bottom: 12px; }
+    .role ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .role li { margin-bottom: 8px; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .skill-group { padding: 22px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.025); }
+    .skill-group h3 { font-size: 14px; margin: 0 0 12px; font-family: "Space Grotesk"; }
+    .skill-group p { color: var(--muted); font-size: 13px; margin: 0; }
+
+    /* Education */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .edu h3 { font-family: "Space Grotesk"; margin: 0 0 5px; font-size: 21px; }
+    .edu p { color: var(--muted); margin: 0; }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      padding: 80px 30px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(139,124,255,.16), transparent 48%),
+        rgba(255,255,255,.025);
+    }
+    .contact p { color: var(--muted); max-width: 620px; margin: 0 auto 28px; }
+
+    footer { padding: 35px 0 45px; color: #69738a; font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 25px; }
+    .socials { display: flex; gap: 18px; }
+    .socials a:hover { color: var(--text); }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px; left: 20px; right: 20px;
+        flex-direction: column; align-items: stretch;
+        padding: 16px; border: 1px solid var(--line);
+        border-radius: 16px; background: rgba(12,16,26,.96);
+      }
+      .nav-links.open { display: flex; }
+      .menu { display: block; }
+      .hero-grid, .about-grid, .edu-grid { grid-template-columns: 1fr; }
+      .terminal { transform: none; }
+      .projects { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      section { padding: 80px 0; }
+      .hero { padding-top: 110px; }
+      h1 { font-size: 51px; }
+      .hero-copy { font-size: 16px; }
+      .stats { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
 </head>
 
 <body>
-
-<!-- NAV -->
-
-<nav>
+  <nav id="nav">
     <div class="container nav-inner">
-
-        <div class="logo">
-            Varun<span>.</span>
-        </div>
-
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-        </div>
-
+      <a href="#top" class="logo">VK<span>.</span></a>
+      <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="nav-cta">Let's talk</a>
+      </div>
     </div>
-</nav>
+  </nav>
 
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> Senior Software Engineer · AI</div>
+          <h1>Building AI systems that <span class="gradient">actually ship.</span></h1>
+          <p class="hero-copy">
+            I’m Varun Karkera, an AI engineer with 4.5+ years of experience building production systems across LLMs, agent workflows, computer vision, backend engineering, and ML.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View my work ↓</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/varun-karkera/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a class="btn btn-secondary" href="https://github.com/vkarkera" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </div>
+        </div>
 
-<!-- HERO -->
+        <div class="terminal reveal">
+          <div class="terminal-top"><i></i><i></i><i></i></div>
+          <div class="terminal-body">
+            <p><span class="prompt">$</span> whoami</p>
+            <p><span class="value">varun.karkera</span></p>
+            <p><span class="prompt">$</span> focus</p>
+            <p><span class="key">AI</span> <span class="value">→ LLMs · Agents · Vision · Backend</span></p>
+            <p><span class="prompt">$</span> stack</p>
+            <p><span class="value">Python · FastAPI · PyTorch · RAG · PostgreSQL</span></p>
+            <p><span class="prompt">$</span> deploy</p>
+            <p><span class="value">Docker · Kubernetes · AWS · GCP</span></p>
+            <p><span class="prompt">$</span> status</p>
+            <p><span class="value">building + learning + shipping</span><span class="cursor"></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<header class="hero">
-    <div class="container">
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">01 · About</div>
+          <h2>I like the part where AI becomes a real product.</h2>
+          <p>I enjoy taking an idea from a messy problem to a working system — model, backend, APIs, evaluation, deployment, and everything in between.</p>
+        </div>
 
-        <div class="hero-content">
-
-            <div class="eyebrow">
-                AI Engineer · Software Engineer · Builder
-            </div>
-
-            <h1>
-                Building AI systems<br>
-                that <span class="gradient">actually work.</span>
-            </h1>
-
+        <div class="about-grid">
+          <div class="glass reveal">
             <p>
-                I'm Varun Karkera, an AI Engineer with 4.5+ years of
-                experience building production AI systems across LLMs,
-                agents, computer vision, and backend engineering.
+              My background started in software engineering and data science, and over the last few years I’ve moved deeper into applied AI. I’ve built systems for accessibility automation, supply-chain compliance, computer vision, ML inference, and LLM-powered workflows.
             </p>
-
-            <div class="buttons">
-
-                <a class="button primary"
-                   href="#projects">
-                    View my work
-                </a>
-
-                <a class="button"
-                   href="https://github.com/vkarkera"
-                   target="_blank">
-                    GitHub
-                </a>
-
-                <a class="button"
-                   href="https://www.linkedin.com/in/varun-karkera/"
-                   target="_blank">
-                    LinkedIn
-                </a>
-
+            <br>
+            <p>
+              I’m strongest in Python and backend engineering, but I like working across the full AI stack. I care about reliability just as much as model quality — especially when an AI system has to be used by real people.
+            </p>
+          </div>
+          <div class="glass reveal">
+            <div class="stats">
+              <div class="stat"><strong>4.5+</strong><span>years engineering</span></div>
+              <div class="stat"><strong>60+</strong><span>enterprise apps</span></div>
+              <div class="stat"><strong>95%</strong><span>manual effort reduced*</span></div>
             </div>
-
+            <p style="font-size:12px; margin-top:16px;">*Reported for a supply-chain compliance workflow.</p>
+          </div>
         </div>
+      </div>
+    </section>
 
-    </div>
-</header>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-    <div class="container">
-
-        <div class="section-label">
-            About
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">02 · Selected work</div>
+          <h2>A few things I’ve built.</h2>
+          <p>Production AI systems, ML infrastructure, and the engineering around them.</p>
         </div>
-
-        <h2>A little about me</h2>
-
-        <p class="about">
-            I enjoy taking messy, real-world problems and turning them
-            into reliable software. My work sits at the intersection of
-            AI and engineering — from LLM and agent workflows to
-            computer vision, APIs, databases, and cloud infrastructure.
-            I like being involved from the initial idea all the way
-            through deployment and production support.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- WHAT I BUILD -->
-
-<section>
-
-    <div class="container">
-
-        <div class="section-label">
-            What I work on
-        </div>
-
-        <h2>Areas I enjoy</h2>
-
-        <div class="focus-grid">
-
-            <div class="focus-card">
-                <h3>LLMs & AI Agents</h3>
-                <p>
-                    LLM applications, RAG, tool calling, agent workflows,
-                    evaluation, prompt engineering and multi-step reasoning.
-                </p>
-            </div>
-
-            <div class="focus-card">
-                <h3>Computer Vision</h3>
-                <p>
-                    Object detection, OCR, image and video processing,
-                    deep learning and real-time inference pipelines.
-                </p>
-            </div>
-
-            <div class="focus-card">
-                <h3>Backend Engineering</h3>
-                <p>
-                    Python, FastAPI, REST APIs, PostgreSQL, microservices
-                    and production systems.
-                </p>
-            </div>
-
-            <div class="focus-card">
-                <h3>ML Systems</h3>
-                <p>
-                    Model deployment, evaluation, GPU optimization,
-                    Docker, Kubernetes and cloud infrastructure.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-    <div class="container">
-
-        <div class="section-label">
-            Selected work
-        </div>
-
-        <h2>Projects I'm proud of</h2>
 
         <div class="projects">
-
-            <div class="project">
-
-                <div class="project-number">
-                    01 / AI + Computer Vision
-                </div>
-
-                <h3>AI Compliance Label Agent</h3>
-
-                <p>
-                    Built an AI-powered compliance system that automatically
-                    checks product images for certification logos and labels.
-                    The pipeline combines computer vision, OCR, LLM reasoning,
-                    source-of-truth validation and backend services to automate
-                    a previously manual workflow.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">YOLO</span>
-                    <span class="tag">OpenCV</span>
-                    <span class="tag">Gemini</span>
-                    <span class="tag">LLMs</span>
-                    <span class="tag">FastAPI</span>
-                    <span class="tag">PostgreSQL</span>
-                    <span class="tag">Docker</span>
-                    <span class="tag">Kubernetes</span>
-                </div>
-
+          <article class="project reveal">
+            <div>
+              <div class="project-number">01 / AI + Computer Vision</div>
+              <h3>AI Compliance Label Agent</h3>
+              <p>
+                An automated product-verification pipeline that detects certification logos, extracts labels with OCR, and validates results against a source-of-truth database before shipment.
+              </p>
             </div>
-
-
-            <div class="project">
-
-                <div class="project-number">
-                    02 / Generative AI
-                </div>
-
-                <h3>Accessibility Compliance AI</h3>
-
-                <p>
-                    Built an AI-driven workflow for identifying and fixing
-                    accessibility issues across enterprise web applications.
-                    The system combined web automation, HTML analysis,
-                    embeddings, RAG and LLM-based recommendations.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">LLMs</span>
-                    <span class="tag">RAG</span>
-                    <span class="tag">Embeddings</span>
-                    <span class="tag">Selenium</span>
-                    <span class="tag">Vector Search</span>
-                </div>
-
+            <div>
+              <div class="tags">
+                <span class="tag">YOLO</span><span class="tag">Gemini OCR</span><span class="tag">LLMs</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+              </div>
+              <div class="project-link">Computer vision → OCR → reasoning → validation</div>
             </div>
+          </article>
 
-
-            <div class="project">
-
-                <div class="project-number">
-                    03 / Computer Vision
-                </div>
-
-                <h3>Real-Time Video ML Pipeline</h3>
-
-                <p>
-                    Worked on image and video segmentation with temporal
-                    tracking and real-time inference. Optimized the pipeline
-                    using CUDA, batching and memory management to reduce
-                    inference latency.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">PyTorch</span>
-                    <span class="tag">OpenCV</span>
-                    <span class="tag">CUDA</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">FastAPI</span>
-                </div>
-
+          <article class="project reveal">
+            <div>
+              <div class="project-number">02 / GenAI + Accessibility</div>
+              <h3>Accessibility Compliance AI</h3>
+              <p>
+                A generative AI platform for automating accessibility auditing and code remediation across 60+ enterprise applications, combining LLM workflows, RAG, vector search, and tool orchestration.
+              </p>
             </div>
+            <div>
+              <div class="tags">
+                <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">RAG</span><span class="tag">FAISS</span><span class="tag">Chroma</span><span class="tag">LLM Agents</span>
+              </div>
+              <div class="project-link">Audit → understand → suggest → remediate</div>
+            </div>
+          </article>
 
+          <article class="project reveal">
+            <div>
+              <div class="project-number">03 / ML + Real-time Inference</div>
+              <h3>Real-Time Video ML Pipeline</h3>
+              <p>
+                Deep-learning image and video segmentation with temporal tracking, exposed through FastAPI inference services and optimized for low-latency GPU processing.
+              </p>
+            </div>
+            <div>
+              <div class="tags">
+                <span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">CUDA</span><span class="tag">FastAPI</span><span class="tag">Docker</span>
+              </div>
+              <div class="project-link">Model → GPU pipeline → API → visualization</div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div>
+              <div class="project-number">04 / Data + ML</div>
+              <h3>Large-Scale Data & Predictive Systems</h3>
+              <p>
+                Data and ML workflows working with 10M+ records, including ETL, validation, statistical analysis, forecasting, regression, classification, and clustering.
+              </p>
+            </div>
+            <div>
+              <div class="tags">
+                <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Spark</span><span class="tag">SQL</span>
+              </div>
+              <div class="project-link">Data → analysis → models → decisions</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">03 · Experience</div>
+          <h2>Where I’ve been building.</h2>
         </div>
 
-    </div>
+        <div class="timeline">
+          <div class="role reveal">
+            <span class="role-dot"></span>
+            <div class="role-meta">OCT 2024 — PRESENT</div>
+            <h3>Senior Software Engineer — AI</h3>
+            <div class="role-company">Capgemini Technology Services · Cisco Systems</div>
+            <ul>
+              <li>Built and deployed generative AI systems for accessibility compliance across 60+ enterprise applications.</li>
+              <li>Designed LLM and agent workflows using RAG, prompt engineering, tool orchestration, and vector search.</li>
+              <li>Built cloud-native services with Docker, CI/CD, GitOps, OCR, LLM pipelines, and production APIs.</li>
+            </ul>
+          </div>
 
-</section>
+          <div class="role reveal">
+            <span class="role-dot"></span>
+            <div class="role-meta">NOV 2022 — SEP 2024</div>
+            <h3>ML Engineer</h3>
+            <div class="role-company">Newbieron · Startup</div>
+            <ul>
+              <li>Developed image and video segmentation systems using PyTorch and OpenCV with temporal tracking.</li>
+              <li>Built FastAPI inference services and GPU-accelerated pipelines using CUDA, batching, and memory optimization.</li>
+              <li>Handled data processing, training, validation, deployment, APIs, and monitoring workflows.</li>
+            </ul>
+          </div>
 
-
-<!-- EXPERIENCE -->
-
-<section id="experience">
-
-    <div class="container">
-
-        <div class="section-label">
-            Experience
+          <div class="role reveal">
+            <span class="role-dot"></span>
+            <div class="role-meta">SEP 2021 — OCT 2022</div>
+            <h3>Software Engineer — Data Science</h3>
+            <div class="role-company">Capgemini Technology Services</div>
+            <ul>
+              <li>Worked with datasets containing 10M+ records for cleaning, validation, analysis, and business insights.</li>
+              <li>Built regression, classification, clustering, ETL, forecasting, and statistical analysis workflows.</li>
+              <li>Worked with engineering, product, and business stakeholders to turn analytical findings into solutions.</li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <h2>Where I've worked</h2>
-
-        <div class="experience">
-
-            <div class="job">
-
-                <div class="job-date">
-                    Oct 2024 — Present
-                </div>
-
-                <div>
-
-                    <h3>Senior Software Engineer — AI</h3>
-
-                    <div class="job-company">
-                        Capgemini
-                    </div>
-
-                    <p>
-                        Building production AI systems across LLMs,
-                        computer vision, compliance automation, APIs,
-                        cloud infrastructure and agent workflows.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="job">
-
-                <div class="job-date">
-                    Nov 2022 — Sep 2024
-                </div>
-
-                <div>
-
-                    <h3>ML Engineer</h3>
-
-                    <div class="job-company">
-                        Newbieron
-                    </div>
-
-                    <p>
-                        Built computer vision and deep learning systems
-                        using PyTorch and OpenCV, including real-time
-                        inference services and GPU-optimized pipelines.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="job">
-
-                <div class="job-date">
-                    Sep 2021 — Oct 2022
-                </div>
-
-                <div>
-
-                    <h3>Software Engineer — Data Science</h3>
-
-                    <div class="job-company">
-                        Capgemini
-                    </div>
-
-                    <p>
-                        Worked on large-scale data analysis, machine
-                        learning, ETL pipelines, statistical analysis
-                        and business intelligence.
-                    </p>
-
-                </div>
-
-            </div>
-
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">04 · Toolkit</div>
+          <h2>What I work with.</h2>
         </div>
-
-    </div>
-
-</section>
-
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-    <div class="container">
-
-        <div class="section-label">
-            Toolkit
-        </div>
-
-        <h2>Technologies I work with</h2>
 
         <div class="skills">
-
-            <span class="skill">Python</span>
-            <span class="skill">C++</span>
-            <span class="skill">SQL</span>
-            <span class="skill">FastAPI</span>
-            <span class="skill">PostgreSQL</span>
-            <span class="skill">PyTorch</span>
-            <span class="skill">TensorFlow</span>
-            <span class="skill">LLMs</span>
-            <span class="skill">RAG</span>
-            <span class="skill">AI Agents</span>
-            <span class="skill">LangChain</span>
-            <span class="skill">LangGraph</span>
-            <span class="skill">Embeddings</span>
-            <span class="skill">Computer Vision</span>
-            <span class="skill">OpenCV</span>
-            <span class="skill">YOLO</span>
-            <span class="skill">Docker</span>
-            <span class="skill">Kubernetes</span>
-            <span class="skill">AWS</span>
-            <span class="skill">GCP</span>
-            <span class="skill">Azure</span>
-            <span class="skill">CUDA</span>
-            <span class="skill">Git</span>
+          <div class="skill-group reveal"><h3>Languages</h3><p>Python · C++ · C# · Go · SQL · Java · JavaScript</p></div>
+          <div class="skill-group reveal"><h3>AI / ML</h3><p>PyTorch · TensorFlow · scikit-learn · Computer Vision · Fine-tuning · Model Evaluation</p></div>
+          <div class="skill-group reveal"><h3>LLMs & Agents</h3><p>LLMs · RAG · Prompt Engineering · Tool Calling · Agent Workflows · Embeddings · Vector Search</p></div>
+          <div class="skill-group reveal"><h3>Backend</h3><p>FastAPI · Flask · REST APIs · PostgreSQL · MySQL · Async Processing</p></div>
+          <div class="skill-group reveal"><h3>Cloud & Infra</h3><p>AWS · GCP · Azure · Docker · Kubernetes · CI/CD · GitOps</p></div>
+          <div class="skill-group reveal"><h3>Data</h3><p>pandas · NumPy · SciPy · Apache Spark · ETL · Data Validation · Statistical Analysis</p></div>
         </div>
+      </div>
+    </section>
 
+    <section id="education">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">05 · Education</div>
+          <h2>Built on a strong technical foundation.</h2>
+        </div>
+        <div class="edu-grid">
+          <div class="glass edu reveal">
+            <h3>IIIT Bangalore</h3>
+            <p>Post Graduation Degree — Data Science, ML/AI</p>
+          </div>
+          <div class="glass edu reveal">
+            <h3>NMAM Institute of Technology</h3>
+            <p>Bachelor of Engineering — Electronics & Communication</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact reveal">
+          <div class="kicker">06 · Contact</div>
+          <h2>Have an interesting problem?</h2>
+          <p>
+            I’m always interested in roles and projects where AI needs to become a reliable product, not just a prototype.
+          </p>
+          <div class="hero-actions" style="justify-content:center;">
+            <a class="btn btn-primary" href="mailto:varunkarkera17@gmail.com">Email me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/varun-karkera/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-secondary" href="https://github.com/vkarkera" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Varun Karkera. Built with HTML, CSS & JavaScript.</div>
+      <div class="socials">
+        <a href="mailto:varunkarkera17@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/varun-karkera/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/vkarkera" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
     </div>
+  </footer>
 
-</section>
+  <script>
+    const nav = document.getElementById("nav");
+    const menu = document.getElementById("menu");
+    const navLinks = document.getElementById("navLinks");
 
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 10);
+    });
 
-<!-- FOOTER -->
+    menu.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
 
-<footer>
+    navLinks.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
 
-    <div class="container footer-content">
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-        <div>
-            © 2026 Varun Karkera
-        </div>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
-        <div class="socials">
-
-            <a href="https://github.com/vkarkera"
-               target="_blank">
-                GitHub
-            </a>
-
-            <a href="https://www.linkedin.com/in/varun-karkera/"
-               target="_blank">
-                LinkedIn
-            </a>
-
-        </div>
-
-    </div>
-
-</footer>
-
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
